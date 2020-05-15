@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Formation Java EE Web - ENI Service</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="css/banque.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<h1>Ma Banque</h1>
+<a href="rechercher.jsp">Web App</a>
+
+<section id="liste-clients">
+	<h2>{{titre}}</h2>
+	<p>{{clients.length}} clients</p>
+	<div class="liste clients">
+		<a href="#" v-for="client in clients" > 
+			{{client.prenom}} {{client.nom}}
+			<i class="material-icons">list_alt</i> 
+		</a>
+	
+	</div>
+</section>
+
+
+<h2>Création Client</h2>
+<form id="form-client" method="POST" action="#" v-on:submit.prevent="create" >
+	<label for="nom">Nom</label>
+	<input type="text" id="nom" name="nom" placeholder="Nom"
+		v-model="client.nom" />
+	<br/>
+	<label for="prenom">Prénom</label>
+	<input type="text" id="prenom" name="prenom" placeholder="Prénom"
+		v-model="client.prenom" />
+	<br/>
+	<button type="submit">
+		<i class="material-icons">done</i> Créer
+	</button>
+</form>
+
+
+</body>
+</html>
